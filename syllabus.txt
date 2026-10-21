@@ -1,0 +1,69 @@
+# Exploratory Data Analysis (EDA): From Raw Data to Understanding
+
+## Part I — Foundations
+
+- Chapter 1 — What Is Exploratory Data Analysis? (Completed)
+- Chapter 2 — Understanding the Dataset
+- Chapter 3 — Data Quality Assessment
+
+## Part II — Univariate Analysis
+
+- Chapter 4 — Exploring Numerical Variables
+- Chapter 5 — Exploring Categorical Variables
+- Chapter 6 — Exploring Date and Time Variables
+
+## Part III — Quantitative EDA
+
+- Chapter 7 — Descriptive Statistics: Beyond the Basics
+- Chapter 8 — Understanding Distributions
+- Chapter 9 — Distribution Shape: Skewness, Kurtosis, and Quantiles
+
+## Part IV — Visual EDA
+
+- Chapter 10 — Visualizing Distributions
+- Chapter 11 — Visualizing Relationships
+- Chapter 12 — Multivariate Visualization
+
+## Part V — Relationships and Associations
+
+- Chapter 13 — Correlation and Association Measures
+- Chapter 14 — Covariance and Dependence
+- Chapter 15 — Grouped Analysis: GroupBy, Crosstabs, and Pivot Tables
+
+## Part VI — Outliers and Anomalies
+
+- Chapter 16 — Outlier and Anomaly Detection
+- Chapter 17 — Investigating Unusual Observations
+
+## Part VII — Advanced EDA
+
+- Chapter 18 — High-Dimensional EDA
+- Chapter 19 — Time Series EDA
+- Chapter 20 — Sampling, Missingness Patterns, and Data Collection Bias
+- Chapter 21 — Automated EDA and Data Profiling
+
+## Part VIII — Professional EDA
+
+- Chapter 22 — EDA for Different Data Domains
+- Chapter 23 — Designing a Reproducible EDA Workflow
+- Chapter 24 — Building a Professional EDA Report
+- Chapter 25 — Communicating Insights and Analytical Uncertainty
+
+## Part IX — Capstone
+
+- Project 1 — End-to-End Exploratory Data Analysis
+
+## Course Completion
+
+By the end of the course, I should be able to:
+
+- Understand unfamiliar datasets systematically.
+- Perform quantitative and visual EDA.
+- Assess data quality and investigate anomalies.
+- Analyze univariate, bivariate, and multivariate relationships.
+- Recognize limitations, sampling issues, and misleading patterns.
+- Build a reproducible EDA workflow.
+- Produce a professional EDA report suitable for real-world clients.
+
+The course ends with understanding and communicating the data,
+not training a machine learning model.

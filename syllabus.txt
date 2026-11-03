@@ -2,7 +2,7 @@
 
 ## Part I — Foundations
 
-- Chapter 1 — What Is Exploratory Data Analysis? (Completed)
+- Chapter 1 — What Is Exploratory Data Analysis?
 - Chapter 2 — Understanding the Dataset
 - Chapter 3 — Data Quality Assessment
 

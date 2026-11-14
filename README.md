@@ -1,5 +1,7 @@
 # Exploratory Data Analysis (EDA): From Raw Data to Understanding
 
+This course, for me, was designed and run by ChatGPT.
+
 ## Part I — Foundations
 
 - Chapter 1 — What Is Exploratory Data Analysis?

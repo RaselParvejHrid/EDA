@@ -1,0 +1,11 @@
+metric,value
+Total records,527948.0
+Record coverage (%),97.42373719572844
+Unique invoices,19789.0
+Unique stock codes,3917.0
+Unique customers,4335.0
+Unique countries,38.0
+Missing CustomerID,131463.0
+Missing Description,0.0
+Total quantity,5577293.0
+Total line value,10279400.474

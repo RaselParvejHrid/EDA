@@ -1,199 +1,236 @@
+# Online Retail — End-to-End Exploratory Data Analysis
 
-# End-to-End Exploratory Data Analysis
+## Project Overview
 
-## Project Description
+This project presents an end-to-end Exploratory Data Analysis (EDA) of the Online Retail dataset.
 
-This project demonstrates a complete, reproducible Exploratory Data
-Analysis (EDA) workflow using a real-world online retail transaction
-dataset.
+The objective is to investigate transaction patterns, assess data quality, prepare a defensible analytical population, identify meaningful patterns, and communicate findings through statistical analysis and visualizations.
 
-The objective is to investigate the structure, quality, distributions,
-relationships, and patterns within transactional data and communicate
-the findings through a professional EDA report.
-
-The project follows a structured analytical workflow, from data
-acquisition and quality assessment to statistical investigation,
-visualization, interpretation, and reporting.
-
-This is a complete example project designed to demonstrate practical
-EDA skills and professional analytical practices.
-
-## Business Context
-
-Imagine an online retailer's management team wants to understand its
-historical transactional data.
-
-The analysis will investigate sales-related patterns, customer
-purchasing behaviour, product performance, geographical differences,
-temporal patterns, and unusual transactions.
-
-The analysis will use descriptive evidence rather than predictive
-modelling.
+The analysis uses Python and its data analysis ecosystem, including Pandas, NumPy, Matplotlib, Seaborn, and SciPy.
 
 ## Dataset
 
-**Name:** Online Retail
+**Source:** [UCI Machine Learning Repository — Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail)
 
-**Source:** UCI Machine Learning Repository
+**DOI:** https://doi.org/10.24432/C5BW33
 
-**Dataset ID:** 352
+**Original dataset characteristics:**
+- 541,909 transaction-line records
+- 8 original variables
+- 38 countries
+- Transaction period: December 1, 2010 – December 9, 2011
 
-**Original file:** `Online Retail.xlsx`
+The dataset contains transactional records from a UK-based online retail business.
 
-**Records:** 541,909
+The observational unit is an invoice line item.
 
-**Variables:** 8
+### Original Variables
 
-**Period:** 1 December 2010 – 9 December 2011
-
-**Business domain:** Online retail transactions
-
-**Dataset licence:** Creative Commons Attribution 4.0 International
-(CC BY 4.0)
-
-**Official source:**  
-https://archive.ics.uci.edu/dataset/352/online+retail
-
-**Dataset citation:**
-
-Chen, D. (2015). Online Retail [Dataset]. UCI Machine Learning
-Repository. https://doi.org/10.24432/C5BW33.
-
-The original dataset will be preserved separately from any
-analytically derived data.
-
-## Analytical Objectives
-
-The project aims to:
-
-1. Understand the dataset, its variables, and its observational units.
-2. Assess data quality, missingness, consistency, and validity.
-3. Explore numerical, categorical, and temporal variables.
-4. Investigate distributions and statistical characteristics.
-5. Examine relationships and associations between variables.
-6. Identify and investigate unusual observations.
-7. Compare purchasing patterns across products, customers,
-   countries, and time periods.
-8. Develop a reproducible analytical workflow.
-9. Communicate findings, limitations, and uncertainty.
-10. Produce a professional EDA report.
-
-## Analytical Questions
-
-The investigation will explore questions such as:
-
-- What is the overall structure and quality of the dataset?
-- How are transaction quantities and unit prices distributed?
-- What temporal patterns appear in the transactions?
-- Which products and countries account for the largest recorded transaction activity?
-- What patterns can be observed in customer purchasing behaviour?
-- How frequently do cancellations and unusual quantities occur?
-- Which variables exhibit meaningful relationships?
-- What limitations should be considered when interpreting the
-  findings?
-
-These questions are provisional and may be refined after inspecting
-the dataset.
-
-## Technologies
-
-- Python
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- SciPy
-- OpenPyXL
-- Jupyter Notebook
-- uv
+| Variable    | Description               |
+| ----------- | ------------------------- |
+| InvoiceNo   | Invoice identifier        |
+| StockCode   | Product identifier        |
+| Description | Product description       |
+| Quantity    | Number of units purchased |
+| InvoiceDate | Transaction date and time |
+| UnitPrice   | Unit price                |
+| CustomerID  | Customer identifier       |
+| Country     | Customer's country        |
 
 ## Project Structure
 
 ```text
 Part IX - Capstone/
 │
-├── README.md
-├── pyproject.toml
-├── uv.lock
-├── .python-version
-├── .gitignore
-│
 ├── config/
 │   └── config.toml
 │
 ├── data/
-│   ├── raw/
 │   ├── interim/
-│   └── processed/
+│   ├── processed/
+│   └── raw/
+│
+├── logs/
 │
 ├── notebooks/
 │   └── End_to_End_EDA.ipynb
+│
+├── outputs/
+│   ├── profiling/
+│   └── tables/
+│
+├── reports/
+│   └── figures/
 │
 ├── src/
 │   ├── data_loading.py
 │   ├── data_quality.py
 │   └── eda_utils.py
 │
-├── reports/
-│   ├── EDA_Report.pdf
-│   └── figures/
-│
-├── outputs/
-│   ├── profiling/
-│   └── tables/
-│
-└── logs/
+├── .gitignore
+├── pyproject.toml
+├── uv.lock
+└── README.md
 ```
+
+## Methodology
+
+The analysis follows a structured EDA workflow.
+
+### 1. Data Understanding
+- Dataset structure and dimensions
+- Variable types and observational unit
+- Initial descriptive statistics
+
+### 2. Data Quality Assessment
+- Duplicate records
+- Missing values and missingness patterns
+- Numeric validity
+- Unusual transaction values
+- Operational and special stock codes
+- Temporal and geographic characteristics
+
+### 3. Data Preparation
+- Feature engineering
+- Transaction classification
+- Analytical population evaluation
+- Export and verification of prepared datasets
+
+### 4. Exploratory Data Analysis
+- Quantitative distributions
+- Categorical distributions
+- Geographic patterns
+- Product activity
+- Temporal patterns
+- Relationships among quantitative variables
+
+### 5. Findings and Recommendations
+- Key analytical findings
+- Data limitations
+- Business-oriented recommendations
+- Final conclusions
+
+## Analytical Population
+
+The original dataset contains 541,909 records.
+
+Following data assessment and transaction classification, the project selected **527,948 positive-sales-candidate records**, representing approximately 97.42% of the original dataset.
+
+The selected population includes records satisfying the following conditions:
+
+- Positive quantity
+- Positive unit price
+- Numeric invoice identifier
+- Not classified as an operational or non-merchandise code
+
+These records are described as positive-sales candidates, not verified completed or paid sales.
+
+CustomerID is missing for approximately 24.90% of the selected population. Records without customer identifiers are retained for analyses that do not require customer-level identification.
+
+## Key Findings
+
+### Geographic Distribution
+- The United Kingdom accounts for approximately 91.69% of selected records.
+- The five most active countries account for approximately 96.82%.
+
+### Product Activity
+- The selected population contains 3,917 distinct stock codes.
+- Product rankings differ depending on record frequency, total quantity, and total line value.
+
+### Quantitative Distributions
+- Quantity, UnitPrice, and LineValue exhibit strong positive skewness and heavy tails.
+- Extreme observations have a substantial influence on means and standard deviations.
+
+### Temporal Patterns
+- November 2011 recorded the highest monthly activity.
+- Thursday recorded the highest weekday activity.
+- Most transaction activity occurred between 9:00 and 16:00.
+
+### Relationships
+- Quantity and LineValue have a strong positive Pearson correlation of 0.916.
+- Quantity and UnitPrice have a Pearson correlation of -0.022 and a Spearman correlation of -0.402.
+
+These relationships are interpreted in the context of the mathematical definition of LineValue as Quantity multiplied by UnitPrice.
+
+## Important Analytical Limitations
+
+- The dataset represents historical transactions from 2010–2011.
+- Missing customer identifiers limit customer-level analysis.
+- Positive-sales candidates are not necessarily verified completed sales.
+- Cancellation invoices cannot always be reliably linked to their original invoices.
+- LineValue represents transaction line value, not verified accounting revenue.
+- Statistical outliers are not automatically treated as errors.
+- Observed associations do not establish causation.
+- December 2011 is incomplete, ending on December 9.
+
+## Technology Stack
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- SciPy
+- OpenPyXL
+- PyArrow
+- Jupyter Notebook
+- uv for Python dependency management
 
 ## Reproducibility
 
-This project uses `uv` for Python environment and dependency
-management.
+### Requirements
 
-To prepare the local environment:
+- Python version compatible with the project's `pyproject.toml`
+- [uv](https://docs.astral.sh/uv/)
+
+### Setup
+
+Clone or download the project repository.
+
+Place the original dataset in:
+
+```text
+data/raw/Online Retail.xlsx
+```
+
+Install the project dependencies using:
 
 ```bash
 uv sync --locked
 ```
 
-Open the notebook in VS Code and select the project's `.venv`
-Python interpreter as its kernel.
+Activate the project environment:
 
-The project will preserve its dependency declarations and lockfile
-to support reproducible execution.
+**Windows CMD:**
 
-## Deliverables
+```cmd
+.venv\Scripts\activate.bat
+```
 
-The final project will include:
+Launch Jupyter:
 
-- A documented and reproducible Jupyter notebook.
-- A professional EDA report in PDF format.
-- Supporting visualizations and analytical tables.
-- Reusable Python utility modules.
-- Project configuration and dependency files.
-- Documentation of the analytical methodology and decisions.
+```bash
+uv run jupyter notebook
+```
 
-A separate portfolio document will summarize the project and
-provide access to its published deliverables.
+Open:
 
-## Analytical Scope and Limitations
+```text
+notebooks/End_to_End_EDA.ipynb
+```
 
-This project focuses on Exploratory Data Analysis.
+Execute the notebook cells sequentially.
 
-It does not aim to build predictive models, perform machine-learning
-training, or establish causal relationships.
+## Data Source and Attribution
 
-The dataset does not provide information about product costs,
-profit margins, marketing expenses, inventory levels, or customer
-satisfaction. Therefore, these topics will not be treated as
-measurable findings.
+Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository.
 
-Derived transaction values will be interpreted with appropriate
-care, especially when dealing with cancellations and returns.
+https://doi.org/10.24432/C5BW33
+
+The dataset is distributed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.
 
 ## Project Status
 
-**Current stage:** Project setup and data acquisition.
+Analytical work and notebook validation completed.
 
-The analysis, findings, visualizations, and final report are not
-yet complete.
+Documentation and final report preparation are completed.
